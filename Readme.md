@@ -1,16 +1,16 @@
-Markups to Yew
+KaTeX for Rust
 ==============
 
-Convert your markups into Yew macro online!
+Render math with KaTeX in Web!
 
-- The online preview: https://galaster.github.io/note-to-yew/
+- The online preview: https://galaster.github.io/katex-wasm
 
-which is also made by Yew.
+## How to use
 
+1. When `auto-cdn` feature is enable, CDN will be inserted to head when the first component of this type is loaded.
 
-## Todo
+If you want to manage CDN by yourself, you can disable this feature and manually import it
 
-- [x] Markdown
-- [ ] Notedown
-- [ ] Org-Mode
-- [ ] Rich Text Format
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css">
+```

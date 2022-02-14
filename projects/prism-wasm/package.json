@@ -1,0 +1,16 @@
+{
+    "private": true,
+    "scripts": {
+        "build": "node esbuild",
+        "t": "wee build && wasm-pack test --chrome",
+        "u": "yarn upgrade-interactive --latest"
+    },
+    "dependencies": {
+        "prismjs": "^1.27.0"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.21",
+        "@types/prismjs": "^1.26.0",
+        "esbuild": "^0.14.25"
+    }
+}
