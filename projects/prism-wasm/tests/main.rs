@@ -1,5 +1,5 @@
 use wasm_bindgen_test::*;
-use katex_wasmbind::prism_render;
+use prism_wasmbind::prism_render;
 
 #[test]
 fn ready() {

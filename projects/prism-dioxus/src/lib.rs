@@ -7,7 +7,7 @@
 
 pub use self::katex::{
     builder::{use_katex, use_katex_display, use_katex_inline},
-    UseKatex,
+    UsePrism,
 };
-pub use katex_wasmbind::KaTeXOptions;
-mod katex;
+pub use prism_wasmbind::KaTeXOptions;
+mod prism;
