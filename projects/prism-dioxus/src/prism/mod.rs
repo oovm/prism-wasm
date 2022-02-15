@@ -5,7 +5,6 @@ use std::{
 };
 
 use dioxus::prelude::*;
-use dioxus_elements::{div, GlobalAttributes};
 
 use crate::{PrismOptions};
 
@@ -22,6 +21,10 @@ impl UsePrism {
     /// Get all config of KaTeX formula.
     pub fn get_config(&self) -> Ref<'_, PrismOptions> {
         self.prism.borrow()
+    }
+    /// Get all config of KaTeX formula.
+    pub fn get_language(&self) -> String {
+        self.get_config().language.to_string()
     }
     /// Get the mutable reference of all config.
     pub fn get_config_mut(&self) -> RefMut<'_, PrismOptions> {
@@ -40,14 +43,10 @@ impl UsePrism {
     pub fn render(&self, input: &str) -> LazyNodes {
         let config = self.prism.borrow_mut();
         let out = config.render(input);
-        LazyNodes::new_some(move |cx: NodeFactory| -> VNode {
-            cx.element(
-                div,
-                cx.bump().alloc([]),
-                cx.bump().alloc([div.dangerous_inner_html(cx, format_args!("{out}", out = out))]),
-                cx.bump().alloc([]),
-                None,
-            )
-        })
+        rsx! {
+            pre {
+                dangerous_inner_html: "{out}"
+            }
+        }
     }
 }
