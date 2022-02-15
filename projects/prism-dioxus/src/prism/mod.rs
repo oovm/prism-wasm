@@ -7,35 +7,25 @@ use std::{
 use dioxus::prelude::*;
 use dioxus_elements::{div, GlobalAttributes};
 
-use katex_wasmbind::KaTeXOptions;
+use crate::{PrismOptions};
 
 pub mod builder;
 
 
 /// A hook which keeping the context of KaTeX formula.
 pub struct UsePrism {
-    katex: Rc<RefCell<KaTeXOptions>>,
+    prism: Rc<RefCell<PrismOptions>>,
     updater: Rc<dyn Fn() + 'static>,
 }
 
 impl UsePrism {
     /// Get all config of KaTeX formula.
-    pub fn get_config(&self) -> Ref<'_, KaTeXOptions> {
-        self.katex.borrow()
+    pub fn get_config(&self) -> Ref<'_, PrismOptions> {
+        self.prism.borrow()
     }
     /// Get the mutable reference of all config.
-    pub fn get_config_mut(&self) -> RefMut<'_, KaTeXOptions> {
-        self.katex.borrow_mut()
-    }
-    /// Set the formula to inline mode.
-    pub fn set_inline_mode(&self) {
-        self.get_config_mut().display_mode = false;
-        self.needs_update();
-    }
-    /// Set the formula to display mode.
-    pub fn set_display_mode(&self) {
-        self.get_config_mut().display_mode = true;
-        self.needs_update();
+    pub fn get_config_mut(&self) -> RefMut<'_, PrismOptions> {
+        self.prism.borrow_mut()
     }
     /// Notify the scheduler to re-render the component.
     pub fn needs_update(&self) {
@@ -47,8 +37,8 @@ impl UsePrism {
     /// Compile the formula to HTML.
     ///
     /// Never fails even if the formula is invalid.
-    pub fn compile(&self, input: &str) -> LazyNodes {
-        let config = self.katex.borrow_mut();
+    pub fn render(&self, input: &str) -> LazyNodes {
+        let config = self.prism.borrow_mut();
         let out = config.render(input);
         LazyNodes::new_some(move |cx: NodeFactory| -> VNode {
             cx.element(
