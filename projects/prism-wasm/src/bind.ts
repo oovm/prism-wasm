@@ -18,6 +18,6 @@ require('prismjs/components/prism-rust');
 require('prismjs/plugins/line-numbers/prism-line-numbers');
 
 export function prism_render(input: string, lang: string): string {
-    return Prism.highlight(input, Prism.languages.js, lang)
+    return Prism.highlight(input, Prism.languages[lang], lang)
 }
 

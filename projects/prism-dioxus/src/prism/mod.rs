@@ -5,11 +5,11 @@ use std::{
 };
 
 use dioxus::prelude::*;
+use prism_wasmbind::PrismLanguage;
 
-use crate::{PrismOptions};
+use crate::PrismOptions;
 
 pub mod builder;
-
 
 /// A hook which keeping the context of KaTeX formula.
 pub struct UsePrism {
@@ -25,6 +25,17 @@ impl UsePrism {
     /// Get all config of KaTeX formula.
     pub fn get_language(&self) -> String {
         self.get_config().language.to_string()
+    }
+    /// Get all config of KaTeX formula.
+    pub fn set_language(&self, language: &str) {
+        self.get_config_mut().language = match language {
+            "javascript" => PrismLanguage::JavaScript,
+            "rust" => PrismLanguage::Rust,
+            "html" | "markup" => PrismLanguage::HTML,
+            "css" => PrismLanguage::Css,
+            _ => return,
+        };
+        self.needs_update()
     }
     /// Get the mutable reference of all config.
     pub fn get_config_mut(&self) -> RefMut<'_, PrismOptions> {
