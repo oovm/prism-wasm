@@ -1,16 +1,16 @@
 [package]
 name = "dioxus-prism"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Aster <192607617@qq.com>"]
-description = "Render math with KaTeX in Yew!"
-repository = "https://github.com/GalAster/yew-katex"
+description = "Render with prismjs in dioxus!"
+repository = "https://github.com/oovm/prism-wasm"
 readme = "readme.md"
 license = "MPL-2.0"
 edition = "2018"
 
 [dependencies]
-dioxus = "0.1.8"
-prism-wasmbind = {version = "0.2.0", path = "../prism-wasm" }
+dioxus = "0.2.3"
+prism-wasmbind = {version = "0.2.1", path = "../prism-wasm" }
 
 [dev-dependencies]
 

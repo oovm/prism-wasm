@@ -1,22 +1,24 @@
-KaTeX for Dioxus
-================
+PrismJS for Dioxus
+==================
 
-Render math with KaTeX in Dioxus!
+Render math with PrismJS in Dioxus!
 
 ## How to use
 
 - First you need to import css cdn:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/oovm/prism-wasm/dev/projects/prism-wasm/src/prism.min.css">
 ```
 
-- Call `use_katex_display` hook to prepare context.
-- Call `compile` to get math expression node.
+or use `PRISM_CSS` to inline css without cdn.
+
+- Call `use_prism_rust` hook to prepare context.
+- Call `render` to get code highlight node.
 
 ```rust
-use dioxus_katex::use_katex_display;
+use dioxus_prism::use_prism_rust;
 
-let katex = use_katex_display(&cx);
-let math = katex.compile(text);
+let rust = use_prism_rust(&cx);
+let code = rust.render(text);
 ```

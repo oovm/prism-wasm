@@ -7,10 +7,13 @@
 
 use wasm_bindgen::prelude::*;
 mod options;
-pub use options::{PrismOptions, PrismLanguage};
+pub use options::{PrismLanguage, PrismOptions};
 
 #[wasm_bindgen(module = "/src/prism.min.js")]
 extern "C" {
+    /// FFI of prism render function
     #[wasm_bindgen]
     pub fn prism_render(input: &str, lang: &str) -> String;
 }
+/// The needed css which should packing to project
+pub const PRISM_CSS: &str = include_str!("prism.min.css");
