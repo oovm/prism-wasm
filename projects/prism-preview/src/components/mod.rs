@@ -5,7 +5,7 @@ use macrowind::tw;
 use widgets::*;
 
 pub fn Editor(cx: Scope) -> Element {
-    let (text, text_set) = use_state(&cx, || include_str!("mod.rs").to_string());
+    let text = use_state(&cx, || include_str!("mod.rs").to_string());
     let prism = use_prism_rust(&cx);
     let language = LanguageSelect(prism);
     let code = prism.render(text);
@@ -22,7 +22,7 @@ pub fn Editor(cx: Scope) -> Element {
                     class: "textarea h-96 textarea-bordered textarea-primary",
                     id: "editor",
                     placeholder: "{place_holder}",
-                    oninput: move |e| text_set(e.value.to_owned()),
+                    oninput: move |e| text.set(e.value.to_owned()),
                     value: "{text}",
                 }
             }
