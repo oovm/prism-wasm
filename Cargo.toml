@@ -2,11 +2,11 @@
 members = ["projects/*"]
 default-members = [
     "projects/prism-wasm",
-    "projects/prism-yew",
     "projects/prism-dioxus",
     "projects/prism-preview",
 ]
 exclude = [
+    "projects/prism-yew",
     "projects/.DS_Store",
 ]
 

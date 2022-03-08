@@ -1,5 +1,5 @@
 [package]
-name = "yew-katex"
+name = "yew-prism"
 version = "0.2.0"
 authors = ["Aster <192607617@qq.com>"]
 description = "Render math with KaTeX in Yew!"
@@ -10,7 +10,7 @@ edition = "2018"
 
 [dependencies]
 yew = "0.17.4"
-katex-wasmbind = {version = "0.9", path = "../prism-wasm" }
+prism-wasmbind = {version = "*", path = "../prism-wasm" }
 anyhow = "1.0.55"
 
 [dev-dependencies]

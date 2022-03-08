@@ -6,6 +6,9 @@
 #![doc(html_favicon_url = "https://avatars.githubusercontent.com/u/31191489")]
 
 use wasm_bindgen::prelude::*;
+mod options;
+pub use options::{PrismOptions, PrismLanguage};
+
 #[wasm_bindgen(module = "/src/prism.min.js")]
 extern "C" {
     #[wasm_bindgen]

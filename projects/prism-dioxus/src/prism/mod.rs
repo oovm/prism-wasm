@@ -11,13 +11,14 @@ use katex_wasmbind::KaTeXOptions;
 
 pub mod builder;
 
+
 /// A hook which keeping the context of KaTeX formula.
-pub struct UseKatex {
+pub struct UsePrism {
     katex: Rc<RefCell<KaTeXOptions>>,
     updater: Rc<dyn Fn() + 'static>,
 }
 
-impl UseKatex {
+impl UsePrism {
     /// Get all config of KaTeX formula.
     pub fn get_config(&self) -> Ref<'_, KaTeXOptions> {
         self.katex.borrow()
@@ -42,7 +43,7 @@ impl UseKatex {
     }
 }
 
-impl UseKatex {
+impl UsePrism {
     /// Compile the formula to HTML.
     ///
     /// Never fails even if the formula is invalid.

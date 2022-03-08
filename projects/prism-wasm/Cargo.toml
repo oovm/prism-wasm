@@ -1,9 +1,9 @@
 [package]
-name = "katex-wasmbind"
-version = "0.9.3"
+name = "prism-wasmbind"
+version = "0.1.0"
 authors = ["Aster <galaster@foxmail.com>"]
-description = "KaTeX Render for wasm bind"
-repository = "https://github.com/oovm/katex-wasm"
+description = "Prismjs Render for wasm bind"
+repository = "https://github.com/oovm/prism-wasm"
 license = "MPL-2.0"
 readme = "Readme.md"
 edition = "2021"
@@ -11,8 +11,8 @@ include = ["/src/**/*"]
 # exclude = ["/tests/*", "/.idea/*", "/benches/*"]
 
 [dependencies]
-serde = "1.0.136"
-serde_derive = "1.0.136"
+#serde = "1.0.136"
+#serde_derive = "1.0.136"
 
 [dependencies.wasm-bindgen]
 version = "0.2.79"
