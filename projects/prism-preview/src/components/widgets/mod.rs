@@ -1,12 +1,8 @@
-use log::warn;
 use super::*;
-
 
 pub fn LanguageSelect(ctx: &UsePrism) -> LazyNodes {
     let c = ctx.get_language();
-    let set_mode = move |e:FormEvent| {
-        warn!("set_mode: {:?}", e.value);
-    };
+    let set_mode = move |e: FormEvent| ctx.set_language(&e.value);
     rsx!(
         label {
             class: "cursor-pointer label",
@@ -19,24 +15,20 @@ pub fn LanguageSelect(ctx: &UsePrism) -> LazyNodes {
                 value: "{c}",
                 onchange: set_mode,
                 option {
-                    value: "m",
-                    "Normal"
+                    value: "rust",
+                    "Rust"
                 }
                 option {
-                    value: "i",
-                    "Inline"
+                    value: "javascript",
+                    "Javascript"
                 }
                 option {
-                    value: "s",
-                    "Scoped"
+                    value: "markup",
+                    "HTML"
                 }
                 option {
-                    value: "k",
-                    "DataKey"
-                }
-                option {
-                    value: "v",
-                    "DataValue"
+                    value: "css",
+                    "Css"
                 }
             }
         }

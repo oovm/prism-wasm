@@ -1,9 +1,9 @@
-KaTeX for Rust
+Prism for Rust
 ==============
 
 Render math with KaTeX in Web!
 
-- The online preview: https://galaster.github.io/katex-wasm
+- The online preview: https://oovm.github.io/prism-wasm
 
 ## How to use
 

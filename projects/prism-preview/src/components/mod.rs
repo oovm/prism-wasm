@@ -1,7 +1,7 @@
 mod widgets;
 use dioxus::{events::FormEvent, prelude::*};
-use macrowind::tw;
 use dioxus_prism::{use_prism_rust, UsePrism};
+use macrowind::tw;
 use widgets::*;
 
 pub fn Editor(cx: Scope) -> Element {
