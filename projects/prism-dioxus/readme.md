@@ -11,6 +11,8 @@ Render math with PrismJS in Dioxus!
 <link rel="stylesheet" href="https://raw.githubusercontent.com/oovm/prism-wasm/dev/projects/prism-wasm/src/prism.min.css">
 ```
 
+or use `PRISM_CSS` to inline css without cdn.
+
 - Call `use_prism_rust` hook to prepare context.
 - Call `render` to get code highlight node.
 

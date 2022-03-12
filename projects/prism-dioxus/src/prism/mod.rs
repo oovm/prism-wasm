@@ -2,6 +2,7 @@ use std::{
     cell::{Ref, RefCell, RefMut},
     fmt::{Debug, Formatter},
     rc::Rc,
+    sync::Arc,
 };
 
 use dioxus::prelude::*;
@@ -14,7 +15,7 @@ pub mod builder;
 /// A hook which keeping the context of KaTeX formula.
 pub struct UsePrism {
     prism: Rc<RefCell<PrismOptions>>,
-    updater: Rc<dyn Fn() + 'static>,
+    updater: Arc<dyn Fn() + 'static>,
 }
 
 impl UsePrism {
